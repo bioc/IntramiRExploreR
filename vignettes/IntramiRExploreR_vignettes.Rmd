@@ -99,7 +99,8 @@ The output can be visualised using **igraph**, similar to visualisation function
 **GetGOS_ALL** function outputs functional network clusters, using FGNet. topGO and DAVID are the 2 available GO methods. 
 ```{r, eval=FALSE}
 miR="dme-miR-12"
-a<-Visualisation(miR,mRNA_type=c("GeneSymbol"),method=c("Both"),platform=c("Affy1"),thresh=100)
+a<-Visualisation(miR,mRNA_type=c("GeneSymbol"),method=c("Both"),platform=c("Affy1"),thresh=100,
+            visualisation="console")
 genes<-a$Target_GeneSymbol
 GetGOS_ALL(genes,GO=c("topGO"),term=c("GO_BP"),path="C://",filename="test")
 ```
