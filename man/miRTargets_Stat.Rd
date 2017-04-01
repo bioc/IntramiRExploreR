@@ -32,4 +32,8 @@ Outputs the target information, Target Prediction Score, miRNA
 \description{
 Extracting miRNAs that target a query gene.
 }
+\examples{
+miRNA="dme-miR-12"
+miRTargets_Stat (miRNA,method=c ("Pearson"),Platform=c ("Affy1"),Text=FALSE)
+}
 

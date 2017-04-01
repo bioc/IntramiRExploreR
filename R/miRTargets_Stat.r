@@ -14,6 +14,9 @@
 #'         a dataframe.
 #'         Depending upon the ouput choice data is stored in the
 #'         path specified. Default option prints output to the console. 
+#' @examples
+#' miRNA="dme-miR-12"
+#' miRTargets_Stat (miRNA,method=c ("Pearson"),Platform=c ("Affy1"),Text=FALSE)
 #' @import utils grDevices graphics 
 #' @importFrom stats na.omit
 #' @export 

@@ -16,6 +16,10 @@
 #'         a dataframe.
 #'         Depending upon the ouput choice data is stored in the
 #'         path specified. Default option prints output to the console. 
+#' @examples
+#' gene="Syb"
+#' genes_Stat(gene,geneIDType="GeneSymbol",method=c("Pearson"),
+#'            Platform=c("Affy1"),Text=FALSE)
 #' @import utils grDevices graphics 
 #' @importFrom stats na.omit
 #' @export
