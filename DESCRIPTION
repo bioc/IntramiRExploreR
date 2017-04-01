@@ -14,7 +14,7 @@ Description: Intra-miR-ExploreR, an integrative miRNA target prediction
     system, enabling the user to identify functionally relevant targets for a given
     miR.
 Depends:
-    R (>= 3.1.2)
+    R (>= 3.4)
 Imports:
     igraph (>= 1.0.1),
     FGNet (>= 3.0.7),
