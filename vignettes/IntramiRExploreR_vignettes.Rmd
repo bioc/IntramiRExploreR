@@ -44,9 +44,27 @@ After the correlation analysis has been performed, a false discovery rate calcul
 
 1)  Probability of sequence conservation of both the targets and the miRNA, across the different species considered in TargetScan and Miranda databases.
 2)  Number of complementary sites in a target for a given miRNA obtained from Pita Target Database.
-3)	Probability of occurrence of the target:miRNA pair across the different experiments
+3)  Probability of occurrence of the target:miRNA pair across the different experiments
  
 These Statistically predicted targets for a given miRNA of interest can be obtained using **miRTargets_Stat** function, but can be visualized by the user using the **Visualisation** function.
+
+These Statistically predicted targets for a given miRNA of interest can be obtained using **miRTargets_Stat** function.
+
+```{r eval=TRUE}
+miR="dme-miR-12"
+a<-miRTargets_Stat(miR,method=c("Both"),Platform=c("Affy1"),Text=FALSE)
+a[1:4,1:5]
+```
+The input to the function are single or multiple miRNAs, the Statitical method which predicts the target, and the platform. The method chosen here is "Both" which is an union of both the **Pearson** and the **Distance** correlation method. The platform is chosen as **Affy1** (Affymetrix platform1).  The  output from the function is targets that are statistically significant, the score associated to each target, the GEO accession IDS where the miRNA and the Targets are correlated and the function of the target genes from the flybase.
+
+Similarly, **genes_Stat** is used to obtain statistically relevant miRNAs that target a gene of interest.
+
+```{r eval=TRUE}
+gene ="Ank2"
+a<-genes_Stat(gene,geneIDType="GeneSymbol", method=c("Both"),Platform=c("Affy1"))
+a[1:4,1:5]
+```
+**genes_Stat** has similar output format as **miRTargets_Stat**, the only difference is that it outs the miRNA function from flybase, instead of the genes.
 
 **Visualisation** function has three output formats:
 a)**text**: Output miRNA targets result obtained from **miRTargets_Stat**, in text format.
@@ -64,20 +82,13 @@ The input to the function are single or multiple miRNAs, the Statitical method w
 
 The output can be visualised using **igraph**.
 
-```{r eval=TRUE}
-miR=c("dme-miR-12","dme-miR-283")
-a<-Visualisation(miR,mRNA_type=c("GeneSymbol"),method=c("Both"),platform=c("Affy1"),thresh=20,
-   visualisation=c("igraph"),layout=c("interactive"))
-
-```
-
 
 Similarly, **Genes_Visualisation** is used to obtain statistically relevant miRNAs that target a gene of interest, as an output from **genes_Stat** function.
 
 ```{r eval=TRUE}
 mRNA="Syb"
 a<-Gene_Visualisation(mRNA,mRNA_type=c("GeneSymbol"),method=c("Pearson"),
-				  platform=c("Affy1"),visualisation= "console")
+            platform=c("Affy1"),visualisation= "console")
 a[1:10,1:5]
 ```
 
