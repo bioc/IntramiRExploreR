@@ -230,7 +230,7 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
             ord <- a[order(-sc), ]
             dat1 <- ord
             dat <- dat1
-            print(dat[1, ])
+            #print(dat[1, ])
         }
         ## If Visualisation is selected as Text If Visualisation is selected as
         ## Text, writes in a .csv file Else If Visualisation is selected as
