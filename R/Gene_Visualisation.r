@@ -102,8 +102,8 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
             }
             Score <- as.numeric(dat$Score)
             ## Storing data in a dataframe
-            datC <- data.frame(Gene = gene, Interaction = rep("pp", 
-                length(miR)), miRNA = miR, Score)
+            datC <- data.frame(Gene = gene, Interaction = rep("pp", length(miR)), 
+                miRNA = miR, Score)
             if (length(mRNA) > 1) {
                 mRNAs <- paste(mRNA, collapse = "&")
             } else {
@@ -153,60 +153,60 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
                 filename = paste("Graphical_output_for_", mRNAs, "_", platform, 
                   "_and_", method, ".tiff", sep = "")
                 if (!(file.exists(file.path(path, filename)))) {
-                    tiff(filename = file.path(path, filename), width = 1000, 
+                  tiff(filename = file.path(path, filename), width = 1000, 
                     height = 1000, units = "px")
-                    plot(a, layout = layout_graph, vertex.color = "red", 
+                  plot(a, layout = layout_graph, vertex.color = "red", 
                     edge.width = E(a)$weight)
-                    dev.off()
+                  dev.off()
                 } else {
-                    stop("File Already Exists!!")
+                  stop("File Already Exists!!")
                 }
                 
             } else if (identical(layout, "fruchterman.reingold")) {
                 layout_graph <- layout.fruchterman.reingold(a)
                 if (length(mRNA) > 1) {
-                    mRNAs <- paste(mRNA, collapse = "&")
+                  mRNAs <- paste(mRNA, collapse = "&")
                 } else {
-                    mRNAs = mRNA
+                  mRNAs = mRNA
                 }
                 filename = paste("Graphical_output_for_", mRNAs, "_", platform, 
                   "_and_", method, ".tiff", sep = "")
                 if (!(file.exists(file.path(path, filename)))) {
-                    tiff(filename = file.path(path, filename), width = 1000, 
+                  tiff(filename = file.path(path, filename), width = 1000, 
                     height = 1000, units = "px")
-                    plot(a, layout = layout_graph, vertex.color = "red", 
+                  plot(a, layout = layout_graph, vertex.color = "red", 
                     edge.width = E(a)$weight)
-                    dev.off()
+                  dev.off()
                 } else {
-                    stop("File Already Exists!!")
+                  stop("File Already Exists!!")
                 }
                 
             } else if (identical(layout, "reingold.tilford")) {
                 layout_graph <- layout.reingold.tilford(a)
                 if (length(mRNA) > 1) {
-                    mRNAs <- paste(mRNA, collapse = "&")
+                  mRNAs <- paste(mRNA, collapse = "&")
                 } else {
-                    mRNAs = mRNA
+                  mRNAs = mRNA
                 }
                 filename = paste("Graphical_output_for_", mRNAs, "_", platform, 
                   "_and_", method, ".tiff", sep = "")
                 if (!(file.exists(file.path(path, filename)))) {
-                    tiff(filename = file.path(path, filename), width = 1000, 
+                  tiff(filename = file.path(path, filename), width = 1000, 
                     height = 1000, units = "px")
-                    plot(a, layout = layout_graph, vertex.color = "red", 
+                  plot(a, layout = layout_graph, vertex.color = "red", 
                     edge.width = E(a)$weight)
-                    dev.off()
+                  dev.off()
                 } else {
-                    stop("File Already Exists!!")
+                  stop("File Already Exists!!")
                 }
             } else if (identical(layout, "interactive")) {
-                    tkplot(a, vertex.color = "red", edge.width = E(a)$weight)
+                tkplot(a, vertex.color = "red", edge.width = E(a)$weight)
             } else {
-                    stop("Invalid Layout!!!")
+                stop("Invalid Layout!!!")
             }
         } else if (identical(visualisation, "console")) {
-                ## Return data to the console
-                return(dat)
+            ## Return data to the console
+            return(dat)
         } else {
             stop("Visualisation method absent")
         }
@@ -230,7 +230,7 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
             ord <- a[order(-sc), ]
             dat1 <- ord
             dat <- dat1
-            #print(dat[1, ])
+            # print(dat[1, ])
         }
         ## If Visualisation is selected as Text If Visualisation is selected as
         ## Text, writes in a .csv file Else If Visualisation is selected as
@@ -297,12 +297,11 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
             a <- graph.data.frame(datN, directed = FALSE)
             ### Creating the Edge weight
             E(a)$weight <- Score
-            ### Selecting the layout to represent the network. The selected 
-            ### network is printed out in the format of a .tiff file. 
-            ### If chosen layout is kamadakawai, prints as .tiff file  
-            ### If chosenfruchterman.reingold, prints as .tiff file 
-            ### If chosen layout isreingold.tilford, prints as .tiff file 
-            ### If chosen layout isinteractive, prints as a tkplot file.
+            ### Selecting the layout to represent the network. The selected network
+            ### is printed out in the format of a .tiff file.  If chosen layout is
+            ### kamadakawai, prints as .tiff file If chosenfruchterman.reingold,
+            ### prints as .tiff file If chosen layout isreingold.tilford, prints as
+            ### .tiff file If chosen layout isinteractive, prints as a tkplot file.
             ### Else Prints error message
             if (identical(layout, "kamadakawai")) {
                 layout_graph <- layout.kamada.kawai(a)
@@ -311,11 +310,11 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
                 filename = paste("Graphical_output_for_", mRNAs, "_", platform, 
                   "_and_", method, ".tiff", sep = "")
                 if (!(file.exists(file.path(path, filename)))) {
-                    tiff(filename = file.path(path, filename), width = 1000, 
+                  tiff(filename = file.path(path, filename), width = 1000, 
                     height = 1000, units = "px")
-                    plot(a, layout = layout_graph, vertex.color = "red", 
+                  plot(a, layout = layout_graph, vertex.color = "red", 
                     edge.width = E(a)$weight)
-                    dev.off()
+                  dev.off()
                 } else {
                   stop("File Already Exists!!")
                 }
@@ -324,13 +323,13 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
                 mRNAs = mRNA
                 
                 filename = paste("Graphical_output_for_", mRNAs, "_", platform, 
-                    "_and_", method, ".tiff", sep = "")
+                  "_and_", method, ".tiff", sep = "")
                 if (!(file.exists(file.path(path, filename)))) {
-                    tiff(filename = file.path(path, filename), width = 1000, 
+                  tiff(filename = file.path(path, filename), width = 1000, 
                     height = 1000, units = "px")
-                    plot(a, layout = layout_graph, vertex.color = "red", 
+                  plot(a, layout = layout_graph, vertex.color = "red", 
                     edge.width = E(a)$weight)
-                    dev.off()
+                  dev.off()
                 } else {
                   stop("File Already Exists!!")
                 }
@@ -339,15 +338,15 @@ Gene_Visualisation <- function(mRNA, mRNA_type = c("GeneSymbol", "FBGN",
                 mRNAs = mRNA
                 
                 filename = paste("Graphical_output_for_", mRNAs, "_", platform, 
-                    "_and_", method, ".tiff", sep = "")
+                  "_and_", method, ".tiff", sep = "")
                 if (!(file.exists(file.path(path, filename)))) {
-                    tiff(filename = file.path(path, filename), width = 1000, 
+                  tiff(filename = file.path(path, filename), width = 1000, 
                     height = 1000, units = "px")
-                    plot(a, layout = layout_graph, vertex.color = "red", 
+                  plot(a, layout = layout_graph, vertex.color = "red", 
                     edge.width = E(a)$weight)
-                    dev.off()
+                  dev.off()
                 } else {
-                    stop("File Already Exists!!")
+                  stop("File Already Exists!!")
                 }
             } else if (identical(layout, "interactive")) {
                 tkplot(a, vertex.color = "red", edge.width = E(a)$weight)
