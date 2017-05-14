@@ -1,2 +1,2 @@
 ###IntramiRExploreR
-  Version 0.99.7
+  Version 0.99.8
