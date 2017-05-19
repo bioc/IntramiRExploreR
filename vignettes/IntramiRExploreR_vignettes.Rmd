@@ -27,8 +27,8 @@ The IntramiRExploreR tool using 2 distinct correlation methods Distance and Pear
 **IntramiEExploreR** is currently available from the github repository. Installation method would be as the following:
 
 ```{r eval=FALSE}
-library("devtools")
-devtools::install_github("sbhattacharya3/IntramiRExploreR")
+ source("https://bioconductor.org/biocLite.R")
+ biocLite("IntramiRExploreR")
 ```
 ```{r eval=TRUE}
 library("IntramiRExploreR")
