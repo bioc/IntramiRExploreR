@@ -16,10 +16,19 @@ Description: Intra-miR-ExploreR, an integrative miRNA target prediction
         enabling the user to identify functionally relevant targets for
         a given miR.
 Depends: R (>= 3.4)
-Imports: igraph (>= 1.0.1), FGNet (>= 3.0.7), knitr (>= 1.12.3), stats,
-        utils, grDevices, graphics
-Suggests: RDAVIDWebService, gProfileR, topGO, KEGGprofile,
-        org.Dm.eg.db, rmarkdown, testthat
+Imports: igraph (>= 1.0.1), 
+         FGNet (>= 3.0.7), 
+		 knitr (>= 1.12.3), 
+		 stats,
+         utils, 
+		 grDevices, 
+		 graphics
+Suggests: RDAVIDWebService,
+          gProfileR, 
+		  topGO, 
+		  org.Dm.eg.db,
+		  rmarkdown, 
+		  testthat
 VignetteBuilder: knitr
 License: GPL-2
 biocViews: Software, Microarray, GeneTarget, StatisticalMethod,
