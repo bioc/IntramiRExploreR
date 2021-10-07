@@ -69,7 +69,7 @@ GetGOS_ALL <- function(gene, GO = c("DAVID", "topGO"), term = c("GOTERM_BP_ALL",
         filename <- paste(term, "_ClusterReport.tab", sep = "")
         fearesults <- FGNet::format_david(file.path(path, filename), jobName = "DavidAnalysis", 
             geneLabels = gene)
-        FGNet::FGNet_report(fearesults, plotKeggPw = FALSE)
+        FGNet::FGNet_report(fearesults)
     } else {
         stopifnot(is.character(geneIdType), length(geneIdType) > 0)
         ### Preprocessing input to topgo
@@ -83,7 +83,7 @@ GetGOS_ALL <- function(gene, GO = c("DAVID", "topGO"), term = c("GOTERM_BP_ALL",
             organisms = "Dm", annotations = ontology, genesUniverse = NULL, 
             refPackage = NULL, geneID2GO = NULL, nodeSize = 5, pValThr = 0.01, 
             testStat = NULL, jobName = file.path(path, filename))
-        FGNet_report(feaResults_topGO, plotKeggPw = FALSE)
+        FGNet_report(feaResults_topGO)
     }
     
 }
