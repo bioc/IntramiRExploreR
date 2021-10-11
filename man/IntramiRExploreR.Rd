@@ -3,7 +3,6 @@
 \docType{package}
 \name{IntramiRExploreR}
 \alias{IntramiRExploreR}
-\alias{IntramiRExploreR-package}
 \title{IntramiRExploreR:Prediction of targets for Intragenic 
 miRNA in Drosophila.}
 \description{
@@ -16,4 +15,3 @@ gene='Gmap'
 extract_intragenic_miR(gene)
 }
 }
-

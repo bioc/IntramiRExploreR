@@ -4,11 +4,15 @@
 \alias{Gene_Visualisation}
 \title{Visualises the targetGene:miRNA network using Cytoscape and igraph .}
 \usage{
-Gene_Visualisation(mRNA, mRNA_type = c("GeneSymbol", "FBGN", "CGID"),
-  method = c("Pearson", "Distance", "Both"), platform = c("Affy1", "Affy2"),
+Gene_Visualisation(
+  mRNA,
+  mRNA_type = c("GeneSymbol", "FBGN", "CGID"),
+  method = c("Pearson", "Distance", "Both"),
+  platform = c("Affy1", "Affy2"),
   visualisation = c("igraph", "Cytoscape", "text", "console"),
-  path = tempdir(), layout = c("kamadakawai", "reingold.tilford",
-  "fruchterman.reingold", "interactive"))
+  path = tempdir(),
+  layout = c("kamadakawai", "reingold.tilford", "fruchterman.reingold", "interactive")
+)
 }
 \arguments{
 \item{mRNA}{character. gene Identifier.}
@@ -44,4 +48,3 @@ mRNA='Syb'
 Gene_Visualisation(mRNA,mRNA_type=c('GeneSymbol'),method=c('Pearson'),
                   platform=c('Affy1'), visualisation = "console")
 }
-

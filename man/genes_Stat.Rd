@@ -4,9 +4,14 @@
 \alias{genes_Stat}
 \title{Extracting miRNAs that target a query gene.}
 \usage{
-genes_Stat(gene, geneIDType = c("GeneSymbol", "FBGN", "CGID"),
+genes_Stat(
+  gene,
+  geneIDType = c("GeneSymbol", "FBGN", "CGID"),
   method = c("Pearson", "Distance", "Both", "BothIntersect"),
-  Platform = c("Affy1", "Affy2"), Text = FALSE, outpath = tempdir())
+  Platform = c("Affy1", "Affy2"),
+  Text = FALSE,
+  outpath = tempdir()
+)
 }
 \arguments{
 \item{gene}{character. gene Identifier.}
@@ -41,4 +46,3 @@ gene="Syb"
 genes_Stat(gene,geneIDType="GeneSymbol",method=c("Pearson"),
            Platform=c("Affy1"),Text=FALSE)
 }
-

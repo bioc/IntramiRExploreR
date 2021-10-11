@@ -20,4 +20,3 @@ Extract Intragenic miRNA for a given Host gene.
 gene="Gmap"
 extract_intragenic_miR(gene)
 }
-

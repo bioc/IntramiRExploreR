@@ -4,7 +4,8 @@
 \name{miRNA_summary_DB}
 \alias{miRNA_summary_DB}
 \title{Contains the summary for the intragenic miRNA.}
-\format{A data frame with 257 rows and 6 variables:
+\format{
+A data frame with 257 rows and 6 variables:
 \describe{
   \item{miRNA}{miRNA name, miRNA symbol}
   \item{Intragenic}{Responsee, in boolean}
@@ -12,7 +13,8 @@
   \item{Gene}{miRNA name, miRNA symbol}
   \item{Type.of.HostGene.mRNA.lncRNA.}{Type of Hostgene}
   \item{Notes}{Comments about the miRNA}
-}}
+}
+}
 \usage{
 miRNA_summary_DB
 }
@@ -20,4 +22,3 @@ miRNA_summary_DB
 A dataset containing the summary for the intragenic miRNA.
 }
 \keyword{datasets}
-

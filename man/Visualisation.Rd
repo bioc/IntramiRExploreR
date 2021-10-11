@@ -4,11 +4,16 @@
 \alias{Visualisation}
 \title{Visualises the targetGene:miRNA network using Cytoscape and igraph .}
 \usage{
-Visualisation(miRNA, mRNA_type = c("GeneSymbol", "FBID", "CGID"),
-  method = c("Pearson", "Distance", "Both"), platform = c("Affy1", "Affy2"),
-  thresh = 50, visualisation = c("igraph", "Cytoscape", "Text", "console"),
-  path = tempdir(), layout = c("kamadakawai", "reingold.tilford",
-  "fruchterman.reingold", "interactive"))
+Visualisation(
+  miRNA,
+  mRNA_type = c("GeneSymbol", "FBID", "CGID"),
+  method = c("Pearson", "Distance", "Both"),
+  platform = c("Affy1", "Affy2"),
+  thresh = 50,
+  visualisation = c("igraph", "Cytoscape", "Text", "console"),
+  path = tempdir(),
+  layout = c("kamadakawai", "reingold.tilford", "fruchterman.reingold", "interactive")
+)
 }
 \arguments{
 \item{miRNA}{character. miRNA Identifier.}
@@ -47,4 +52,3 @@ Visualisation(miRNA,mRNA_type=c('GeneSymbol'),method=c('Pearson'),
 platform=c('Affy1'),visualisation=c('igraph'),layout=c('kamadakawai'),
            path=tempdir())
 }
-

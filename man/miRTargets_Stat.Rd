@@ -4,9 +4,13 @@
 \alias{miRTargets_Stat}
 \title{Extracting miRNAs that target a query gene.}
 \usage{
-miRTargets_Stat(miR, method = c("Pearson", "Distance", "Both",
-  "BothIntersect"), Platform = c("Affy1", "Affy2"), outpath = tempdir(),
-  Text = FALSE)
+miRTargets_Stat(
+  miR,
+  method = c("Pearson", "Distance", "Both", "BothIntersect"),
+  Platform = c("Affy1", "Affy2"),
+  outpath = tempdir(),
+  Text = FALSE
+)
 }
 \arguments{
 \item{miR}{character. miRNA symbol.}
@@ -36,4 +40,3 @@ Extracting miRNAs that target a query gene.
 miRNA="dme-miR-12"
 miRTargets_Stat (miRNA,method=c ("Pearson"),Platform=c ("Affy1"),Text=FALSE)
 }
-

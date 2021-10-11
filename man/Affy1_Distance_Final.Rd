@@ -4,7 +4,8 @@
 \name{Affy1_Distance_Final}
 \alias{Affy1_Distance_Final}
 \title{Targets for the microRNA analyzed from Affy1 plaform using Distance.}
-\format{A data frame with 53399 rows and 8 variables:
+\format{
+A data frame with 53399 rows and 8 variables:
 \describe{
   \item{miRNA}{miRNA name, miRNA symbol}
   \item{GeneSymbol}{Gene name, in Gene Symbol}
@@ -14,7 +15,8 @@
   \item{GeneFunction}{Gene Functions, from Flybase}
   \item{experiments}{Experiments, from ArrayExpress}
   \item{TargetDatabases}{Target Database Name, from TargetDatabases}
-}}
+}
+}
 \usage{
 Affy1_Distance_Final
 }
@@ -24,4 +26,3 @@ attributes of 83 intragenic microRNAs using Distance Correlation
 for plaform Affymetrix 1.
 }
 \keyword{datasets}
-

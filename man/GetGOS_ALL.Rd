@@ -4,22 +4,25 @@
 \alias{GetGOS_ALL}
 \title{Gene ontology for Target Genes.}
 \usage{
-GetGOS_ALL(gene, GO = c("DAVID", "topGO"), term = c("GOTERM_BP_ALL",
-  "GOTERM_MF_ALL", "GOTERM_CC_ALL"), geneIdType = "ALIAS", email,
-  path = tempdir(), ontology = c("GO_BP", "GO_MF", "GO_CC"), filename)
+GetGOS_ALL(
+  gene,
+  GO = c("topGO"),
+  term = c("GOTERM_BP_ALL", "GOTERM_MF_ALL", "GOTERM_CC_ALL"),
+  geneIdType = "ALIAS",
+  path = tempdir(),
+  ontology = c("GO_BP", "GO_MF", "GO_CC"),
+  filename
+)
 }
 \arguments{
 \item{gene}{List  A String or vector containing the Gene names.}
 
-\item{GO}{A String depicting the chosen GO tool. Choices are
-"David" and "topGO"}
+\item{GO}{A String depicting the chosen GO tool. Choice is "topGO"}
 
 \item{term}{A String depicting the chosen term. Choices are
 "GOTERM_BP_ALL","GOTERM_MF_ALL", "GOTERM_CC_ALL".}
 
 \item{geneIdType}{Type of gene Id given as input. Default "ALIAS"}
-
-\item{email}{Email Id to connect to David.}
 
 \item{path}{String. The path where the data is stored if TEXT=TRUE.}
 
@@ -45,4 +48,3 @@ GetGOS_ALL(genes,GO=c("topGO"),term=c("GO_BP"),path=tempdir(),
      filename="test")
  }
 }
-

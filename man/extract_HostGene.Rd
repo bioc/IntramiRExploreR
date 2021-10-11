@@ -20,4 +20,3 @@ Extract Host Gene for a given Intragenic miRNA.
 miRNA="dme-miR-12"
 extract_HostGene(miRNA)
 }
-
