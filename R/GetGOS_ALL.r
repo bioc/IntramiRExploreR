@@ -1,11 +1,9 @@
 #' Gene ontology for Target Genes.
 #' 
 #' @param gene List  A String or vector containing the Gene names.
-#' @param GO   A String depicting the chosen GO tool. Choices are
-#'             "David" and "topGO"
+#' @param GO   A String depicting the chosen GO tool. Choice is "topGO"
 #' @param term  A String depicting the chosen term. Choices are
 #'               "GOTERM_BP_ALL","GOTERM_MF_ALL", "GOTERM_CC_ALL".
-#' @param email Email Id to connect to David.
 #' @param geneIdType Type of gene Id given as input. Default "ALIAS"
 #' @param filename Name of the file to store Gene Ontology.
 #' @param ontology Ontology selection for topGO. Choices are
@@ -24,17 +22,18 @@
 #'  }
 #' @import FGNet
 #' @export
-GetGOS_ALL <- function(gene, GO = c("DAVID", "topGO"), term = c("GOTERM_BP_ALL", 
-    "GOTERM_MF_ALL", "GOTERM_CC_ALL"), geneIdType = "ALIAS", email, path = tempdir(), 
+GetGOS_ALL <- function(gene, GO = c("topGO"), term = c("GOTERM_BP_ALL", 
+    "GOTERM_MF_ALL", "GOTERM_CC_ALL"), geneIdType = "ALIAS", path = tempdir(), 
     ontology = c("GO_BP", "GO_MF", "GO_CC"), filename) {
     #Checking the gene length, term and ontology is entered correctly
     stopifnot(is.character(gene), length(gene) > 20)
     stopifnot(is.character(term), length(term) == 1)
     stopifnot(is.character(ontology), length(ontology) == 1)
-    stopifnot(is.character(GO), length(GO) == 1, GO %in% c("DAVID", "topGO"))
+    stopifnot(is.character(GO), length(GO) == 1, GO %in% c("topGO"))
     ### If GO chosen as DAVID do DAVID functional clustering Else do topGO
     ### functional Clustering
-    if (identical(GO, "DAVID")) {
+	###Old code as RDAVIDWebService is not working we use only topGO
+    'if (identical(GO, "DAVID")) {
         ### Checking whether the email is correct
         stopifnot(is.character(email), length(email) > 0)
         ### If RDAVIDWebService is not installed, prompts you to install it.
@@ -69,7 +68,7 @@ GetGOS_ALL <- function(gene, GO = c("DAVID", "topGO"), term = c("GOTERM_BP_ALL",
         filename <- paste(term, "_ClusterReport.tab", sep = "")
         fearesults <- FGNet::format_david(file.path(path, filename), jobName = "DavidAnalysis", 
             geneLabels = gene)
-        FGNet::FGNet_report(fearesults)
+        FGNet::FGNet_report(fearesults, plotKeggPw = FALSE)
     } else {
         stopifnot(is.character(geneIdType), length(geneIdType) > 0)
         ### Preprocessing input to topgo
@@ -83,7 +82,24 @@ GetGOS_ALL <- function(gene, GO = c("DAVID", "topGO"), term = c("GOTERM_BP_ALL",
             organisms = "Dm", annotations = ontology, genesUniverse = NULL, 
             refPackage = NULL, geneID2GO = NULL, nodeSize = 5, pValThr = 0.01, 
             testStat = NULL, jobName = file.path(path, filename))
-        FGNet_report(feaResults_topGO)
-    }
+        FGNet_report(feaResults_topGO, plotKeggPw = FALSE)
+    }'
+	
+	if(identical(GO, "topGO")){
+	    stopifnot(is.character(geneIdType), length(geneIdType) > 0)
+        ### Preprocessing input to topgo
+        filename <- paste(filename, "_topGO", sep = "")
+        gene <- gene
+        term <- as.character(term)
+        geneIdType = geneIdType
+        filename <- paste(term, "TOPGOAnalysis", sep = "")
+        ### Input data to topGO via FBGN
+        feaResults_topGO <- FGNet::fea_topGO(gene, geneIdType, geneLabels = NULL, 
+            organisms = "Dm", annotations = ontology, genesUniverse = NULL, 
+            refPackage = NULL, geneID2GO = NULL, nodeSize = 5, pValThr = 0.01, 
+            testStat = NULL, jobName = file.path(path, filename))
+        FGNet_report(feaResults_topGO, plotKeggPw = FALSE)
+	}else{stop("GO method invalid!!!!")}
+	
     
 }
