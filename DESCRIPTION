@@ -1,6 +1,6 @@
 Package: IntramiRExploreR
 Title: Predicting Targets for Drosophila Intragenic miRNAs
-Version: 1.16.0
+Version: 1.17.0
 Author: Surajit Bhattacharya and Daniel Cox
 Maintainer: Surajit Bhattacharya <sbhattach2@childrensnational.org>
 Description: Intra-miR-ExploreR, an integrative miRNA target prediction
